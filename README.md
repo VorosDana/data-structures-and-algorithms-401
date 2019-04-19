@@ -13,7 +13,7 @@ We are reversing an array. The examples were all integers, so we assumed that wa
 
 We used a swap value to reverse the array, starting from the first and last, and moving in. It runs in O(n)
 
-### Solution
+### Whiteboard Solution
 
 ![](./assets/reverse-array-whiteboard.jpg)
 
@@ -30,10 +30,28 @@ Make a function that takes in an array and an integer, and returns an a new arra
 
 We made a new array with a length of the input array's length + 1. We then copied in the first half of the input array (rounding up for odd indexes), put in the new value, and added the last half of the input array (rounding down for odd lengths)
 
-### Solution
+### Whiteboard Solution
 
 ![](./assets/insert-shift-array.jpg)
 
 ### Code ( [Link](./src/main/java/InsertShiftArray.java) )
 
 ### Tests ( [Link](./src/test/java/InsertShiftArrayTest.java) )
+
+## Binary Search
+
+### Challenge
+
+Implement a binary search ( [Wikipedia Entry](https://en.wikipedia.org/wiki/Binary_search_algorithm) ) to find the index of an element in an array of integers, returning -1 if not found
+
+### Approach & Efficiency
+
+We defined the left and right of the search area as 0 and the last index of the array. If the midpoint element between those two indexes was the target, we returned the index. If the element at that midpoint was less than the target, we moved the left end of the search range to the midpoint (rounding up for odd widths), if the element was less than the target, we set the rigth side of the search as the midpoint. That repeats until the element is found, or left and right are equal. After that is done, there is one last check to see if the target is at the index contained in both left and right (to ensure that the last possible element is checked), if still not found, -1 is returned.
+
+### Whiteboard Solution
+
+![](./assets/binary-search.jpg)
+
+### Code ( [Link](./src/main/java/BinarySearch.java) )
+
+### Tests ( [Link](./src/test/java/BinarySearchTest.java))
