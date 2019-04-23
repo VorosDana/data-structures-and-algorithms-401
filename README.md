@@ -55,3 +55,40 @@ We defined the left and right of the search area as 0 and the last index of the 
 ### Code ( [Link](./src/main/java/BinarySearch.java) )
 
 ### Tests ( [Link](./src/test/java/BinarySearchTest.java))
+
+## Linked List Implementation 
+
+### Challenge
+
+Create a singly linked list that instantiates empty, can insert new values, can return a boolean result of whether a value is contained, and return a collection of all elements.
+
+### Code ( [Link](./src/main/java/mylinkedlist/MyLinkedList.java) )
+
+### Tests ( [Link](./src/test/java/mylinkedlist/MyLinkedListTest.java))
+
+ - [x] Create and print an empty linked list
+ - [x] Create a linked list, insert 2 elements, return collection of those elements
+ - [x] Create a linked list, insert 5 elements, return collection of those elements
+ - [x] Create a linked list, return true when searching for a value contained in it
+ - [x] Create a linked list, return false when searching for a vlue NOT contained in it
+ - [x] Create a linked list, add elements, confirm head references last created element
+
+## Link List Insertion Methods
+
+### Code ( [Link](./src/main/java/mylinkedlist/MyLinkedList.java) )
+
+### Tests ( [Link](./src/test/java/mylinkedlist/MyLinkedListTest.java))
+
+### Whiteboard Solutions
+
+#### Append
+
+![](./assets/linked-list-append.jpg)
+
+#### Insert Before
+
+![](./assets/linked-list-insert-before.jpg)
+
+#### Insert After
+
+![](./assets/linked-list-insert-after.jpg)
