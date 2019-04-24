@@ -3,7 +3,7 @@ package mylinkedlist;
 import java.util.ArrayList;
 
 public class MyLinkedList<T> {
-    private Node head;
+    private Node<T> head;
 //    private Node current;
 
     public MyLinkedList(T initialValue) {
@@ -14,9 +14,9 @@ public class MyLinkedList<T> {
         this.head = null;
     }
 
-    private class Node {
+    private class Node<T> {
         private T value;
-        private Node next;
+        private Node<T> next;
 
         private Node(T value) {
 
@@ -29,7 +29,7 @@ public class MyLinkedList<T> {
     }
 
     public void insert(T value) {
-        Node newNode = new Node(value);
+        Node<T> newNode = new Node(value);
         newNode.next = head;
         head = newNode;
     }
@@ -40,7 +40,7 @@ public class MyLinkedList<T> {
      *              If the list is empty, functions identically to insert
      */
     public void append(T value) {
-        Node newNode = new Node(value);
+        Node<T> newNode = new Node(value);
 
         // If list is empty, head is the end, put the node there
         if (head == null) {
@@ -49,7 +49,7 @@ public class MyLinkedList<T> {
         }
 
         // Find the tail
-        Node current = head;
+        Node<T> current = head;
         while (current.next != null) {
             current = current.next;
         }
@@ -78,14 +78,14 @@ public class MyLinkedList<T> {
 
         // Special case for one element linked list
         if (head.next == null && head.value.equals(targetValue)) {
-            Node newNode = new Node(newValue);
+            Node<T> newNode = new Node(newValue);
             newNode.next = head;
             head = newNode;
             return true;
         }
 
         // Find the targetValue, or break when there are no more options
-        Node current = head;
+        Node<T> current = head;
         while (current.next != null && !current.next.value.equals(targetValue)) {
             current = current.next;
         }
@@ -97,7 +97,7 @@ public class MyLinkedList<T> {
         }
 
         // Insert new element
-        Node newNode = new Node(newValue);
+        Node<T> newNode = new Node(newValue);
         newNode.next = current.next;
         current.next = newNode;
         return true;
@@ -111,7 +111,7 @@ public class MyLinkedList<T> {
         }
 
         // Find the targetValue, or break when there are no more options
-        Node current = head;
+        Node<T> current = head;
         while (current != null && !current.value.equals(targetValue)) {
             current = current.next;
         }
@@ -123,14 +123,47 @@ public class MyLinkedList<T> {
         }
 
         // Insert new element
-        Node newNode = new Node(newValue);
+        Node<T> newNode = new Node(newValue);
         newNode.next = current.next;
         current.next = newNode;
         return true;
     }
 
+    /**
+     * Inserts a new node into the list.
+     * k=0 inserts it at the end, target point counts up from there.
+     * k<0 or k>=size throws an IndexOutOfBoundsException.
+     * Should not be used for empty lists or for inserting at head, use insert instead.
+     *
+     * @param newValue
+     * @param k
+     * @throws IndexOutOfBoundsException
+     */
+    public void insertKthFromEnd(T newValue, int k) throws IndexOutOfBoundsException {
+        if (k < 0 || k >= this.size()) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        Node<T> current = head;
+
+        for (int i = 1; i < this.size() - k; i++) {
+            current = current.next;
+        }
+
+        Node<T> newNode = new Node<>(newValue);
+        newNode.next = current.next;
+        current.next = newNode;
+    }
+
+    /**
+     * Searchs list for a Node containing value,
+     * returns true if found, false if not.
+     *
+     * @param value
+     * @return
+     */
     public boolean contains(T value) {
-        Node current = head;
+        Node<T> current = head;
 
         // Search through until we find either the right value, or the end of the list
         while (current != null) {
@@ -146,9 +179,26 @@ public class MyLinkedList<T> {
         return false;
     }
 
+    /**
+     * Returns the size of the list.
+     *
+     * @return size
+     */
+    public int size() {
+        Node current = head;
+        int size = 0;
+
+        while (current != null) {
+            size++;
+            current = current.next;
+        }
+
+        return size;
+    }
+
     public ArrayList print() {
         ArrayList<T> output = new ArrayList<>();
-        Node current = head;
+        Node<T> current = head;
         while (current != null) {
             output.add(current.value);
             current = current.next;
