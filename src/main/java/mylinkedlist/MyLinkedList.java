@@ -6,14 +6,28 @@ public class MyLinkedList<T> {
     private Node<T> head;
 //    private Node current;
 
+    /**
+     * Convenience constructor, creates a MyLinkedList with
+     * a node built.
+     *
+     * @param initialValue
+     */
     public MyLinkedList(T initialValue) {
         this.head = new Node(initialValue);
     }
 
+    /**
+     * Basic constructor, makes an empty MyLinkedList
+     */
     public MyLinkedList() {
         this.head = null;
     }
 
+    /**
+     * Internal use Node class
+     *
+     * @param <T>
+     */
     private class Node<T> {
         private T value;
         private Node<T> next;
@@ -24,6 +38,11 @@ public class MyLinkedList<T> {
         }
     }
 
+    /**
+     * Does what it says on the tin.
+     *
+     * @return
+     */
     public T getHeadValue() {
         return head.value;
     }
@@ -36,8 +55,10 @@ public class MyLinkedList<T> {
 
 
     /**
-     * @param value Attaches a new node with the provided value to the tail of the linked list.
-     *              If the list is empty, functions identically to insert
+     * Attaches a new node with the provided value to the tail of the linked list.
+     * If the list is empty, functions identically to insert
+     *
+     * @param value
      */
     public void append(T value) {
         Node<T> newNode = new Node(value);
@@ -59,15 +80,15 @@ public class MyLinkedList<T> {
     }
 
     /**
-     * @param newValue
-     * @param targetValue
-     * @return insertSuccess
-     * <p>
      * Inserts a new Node containing newValue in front of
      * a node containing targetValue, fails if it can't
      * find a Node containing targetValue.
      * <p>
      * Returns true if element was inserted, false if insert failed.
+     *
+     * @param newValue
+     * @param targetValue
+     * @return insertSuccess
      */
     public boolean insertBefore(T newValue, T targetValue) {
 
@@ -103,6 +124,14 @@ public class MyLinkedList<T> {
         return true;
     }
 
+    /**
+     * Finds a Node containing targetValue, and inserts a new Node
+     * containing newValue after it in the list.
+     *
+     * @param newValue
+     * @param targetValue
+     * @return
+     */
     public boolean insertAfter(T newValue, T targetValue) {
 
         // If list is empty, can't find targetValue, escape to avoid null reference errors
@@ -196,6 +225,12 @@ public class MyLinkedList<T> {
         return size;
     }
 
+    /**
+     * Returns an ArrayList containing the values of all nodes.
+     * Mostly used for debugging.
+     *
+     * @return NodeContentsList
+     */
     public ArrayList print() {
         ArrayList<T> output = new ArrayList<>();
         Node<T> current = head;
