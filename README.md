@@ -102,3 +102,17 @@ Create a singly linked list that instantiates empty, can insert new values, can 
 ### Whiteboard Solution
 
 ![](./assets/linked-list-insert-kth-from-end.jpg)
+
+## Linked List Merge
+
+### Task
+
+Combine two linked lists, alternating nodes from each. Create no new nodes, complete the task in O(1) space.
+
+### Whiteboard Solution (amended after to use O(1) space)
+
+![](./assets/LinkedListMerge.jpg)
+
+### Code ( [Link](./src/main/java/mylinkedlist/LinkedListSmusher.java) )
+
+### Tests ( [Link](./src/test/java/mylinkedlist/LinkedListSmusherTest.java) )
