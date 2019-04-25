@@ -118,6 +118,20 @@ public class MyLinkedListTest {
     }
 
     @Test
+    public void testAppendSingleElementList() {
+        MyLinkedList<Integer> testList = new MyLinkedList<Integer>();
+
+        testList.insert(2345);
+        testList.append(165);
+
+        ArrayList<Integer> expected = new ArrayList<>();
+        expected.add(2345);
+        expected.add(165);
+
+        assertEquals(expected, testList.print());
+    }
+
+    @Test
     public void testInsertBeforeSuccessSingleElementList() {
         MyLinkedList<Integer> testList = new MyLinkedList<Integer>();
         testList.insert(6236);
@@ -201,6 +215,92 @@ public class MyLinkedListTest {
 
 
         assertEquals(expected, testList.print());
+    }
+
+    @Test
+    public void testInsertKthFromEndEmpty() {
+        MyLinkedList<Integer> testList = new MyLinkedList<Integer>();
+
+        try {
+            testList.insertKthFromEnd(35, 0);
+            assertTrue(false);
+        } catch (IndexOutOfBoundsException e) {
+            assertTrue(true);
+        }
+    }
+
+    @Test
+    public void testInsertKthFromEndOneElementFail() {
+        MyLinkedList<Integer> testList = new MyLinkedList<Integer>();
+        testList.insert(5);
+
+        try {
+            testList.insertKthFromEnd(35, 1);
+            assertTrue(false);
+        } catch (IndexOutOfBoundsException e) {
+            assertTrue(true);
+        }
+    }
+
+    @Test
+    public void testInsertKthFromEndOneElementPass() {
+        MyLinkedList<Integer> testList = new MyLinkedList<Integer>();
+        testList.insert(5);
+
+        try {
+            testList.insertKthFromEnd(35, 0);
+            assertTrue(true);
+        } catch (IndexOutOfBoundsException e) {
+            assertTrue(false);
+        }
+    }
+
+    @Test
+    public void testInsertKthFromEndSeveralElementPass() {
+        MyLinkedList<Integer> testList = new MyLinkedList<Integer>();
+        testList.insert(5);
+        testList.insert(567);
+        testList.insert(6742);
+        testList.insert(5237);
+
+        try {
+            testList.insertKthFromEnd(35, 2);
+            assertTrue(true);
+        } catch (IndexOutOfBoundsException e) {
+            assertTrue(false);
+        }
+    }
+
+    @Test
+    public void testInsertKthFromEndSeveralElementFail() {
+        MyLinkedList<Integer> testList = new MyLinkedList<Integer>();
+        testList.insert(5);
+        testList.insert(567);
+        testList.insert(6742);
+        testList.insert(5237);
+
+        try {
+            testList.insertKthFromEnd(35, 4);
+            assertTrue(false);
+        } catch (IndexOutOfBoundsException e) {
+            assertTrue(true);
+        }
+    }
+
+    @Test
+    public void testInsertKthFromEndSeveralElementFailNegativeK() {
+        MyLinkedList<Integer> testList = new MyLinkedList<Integer>();
+        testList.insert(5);
+        testList.insert(567);
+        testList.insert(6742);
+        testList.insert(5237);
+
+        try {
+            testList.insertKthFromEnd(35, -1);
+            assertTrue(false);
+        } catch (IndexOutOfBoundsException e) {
+            assertTrue(true);
+        }
     }
 
     /*
