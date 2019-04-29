@@ -3,7 +3,7 @@ package mylinkedlist;
 import java.util.ArrayList;
 
 public class MyLinkedList<T> {
-    private Node<T> head;
+    protected Node<T> head;
 //    private Node current;
 
     /**
@@ -28,11 +28,11 @@ public class MyLinkedList<T> {
      *
      * @param <T>
      */
-    private class Node<T> {
-        private T value;
-        private Node<T> next;
+    protected class Node<T> {
+        protected T value;
+        protected Node<T> next;
 
-        private Node(T value) {
+        protected Node(T value) {
 
             this.value = value;
         }
@@ -44,6 +44,9 @@ public class MyLinkedList<T> {
      * @return
      */
     public T getHeadValue() {
+        if (head == null) {
+            return null;
+        }
         return head.value;
     }
 
@@ -224,6 +227,7 @@ public class MyLinkedList<T> {
 
         return size;
     }
+
 
     /**
      * Returns an ArrayList containing the values of all nodes.
