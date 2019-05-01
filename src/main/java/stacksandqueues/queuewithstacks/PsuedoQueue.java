@@ -13,6 +13,9 @@ public class PsuedoQueue<T> {
 
     public void enqueue(T newValue) {
         storeStack.push(newValue);
+        while (swapStack.peek() != null) {
+            storeStack.push(swapStack.pop());
+        }
     }
 
     public T dequeue() {
@@ -20,9 +23,7 @@ public class PsuedoQueue<T> {
             swapStack.push(storeStack.pop());
         }
         T output = swapStack.pop();
-        while (swapStack.peek() != null) {
-            storeStack.push(swapStack.pop());
-        }
+
         return output;
     }
 
@@ -31,9 +32,7 @@ public class PsuedoQueue<T> {
             swapStack.push(storeStack.pop());
         }
         T output = swapStack.peek();
-        while (swapStack.peek() != null) {
-            storeStack.push(swapStack.pop());
-        }
+
         return output;
     }
 }
