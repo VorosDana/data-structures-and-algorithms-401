@@ -91,4 +91,22 @@ public class FIFOAnimalShelterTest {
         assertEquals("Sir Clawsalot", testo.dequeue("cAT").getName());
         assertEquals("Fluffbutt", testo.dequeue("cAt").getName());
     }
+
+    @Test
+    public void testFails() {
+        FIFOAnimalShelter testo = new FIFOAnimalShelter();
+
+        assertNull(testo.dequeue("DOG"));
+
+        testo.enqueue(new Dog("Buffin")); // Combination of Banana and Muffin
+        testo.enqueue(new Dog("BARKO WHOM BARK MUCH"));
+        testo.enqueue(new Dog("Woof")); // We asked, he answered.
+
+
+        assertEquals("Buffin", testo.dequeue("dog").getName());
+        assertEquals("BARKO WHOM BARK MUCH", testo.dequeue("dOg").getName());
+        assertNull(testo.dequeue("DOGGO"));
+        assertEquals("Woof", testo.dequeue("DOG").getName());
+        assertNull(testo.dequeue("DOG"));
+    }
 }

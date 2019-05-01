@@ -48,7 +48,7 @@ public class FIFOAnimalShelter {
             }
 
 
-            if (q.peek().getClass() == prefClass) {
+            if (q.peek().getClass() != Pet.class && q.peek().getClass() == prefClass) {
                 output = q.dequeue();
                 while (q.peek().getClass() != Pet.class) {
                     q.enqueue(q.dequeue());
