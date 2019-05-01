@@ -22,3 +22,6 @@
 |enqueue|O(1)|O(1) | Creates a new Node. Pushes the new Node into the storage Stack.
 |dequeue|O(1)|O(1) | Pops all values out of the storage Stack, pushing them into the swap Stack. Pops top value off of swap Stack, storing the value for output. Pops the values off of the swap Stack, pushing them back into the storage Stack, then returns the stored value.
 |peek|O(1)|O(1) | Pops all values out of the storage Stack, pushing them into the swap Stack. Peeks the value from the top of the swap Stack, storing the value for output. Pops the values off of the swap Stack, pushing them back into the storage Stack, then returns the stored value.
+
+
+![](../../../../../assets/pseudoqueue.jpg)
