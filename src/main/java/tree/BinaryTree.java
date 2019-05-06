@@ -8,17 +8,17 @@ public class BinaryTree<T> {
 
 
     public List<String> preOrderTraversal() {
-        List<String> output = new ArrayList<>() List<> ();
+        List<String> output = new ArrayList<>();
         return output;
     }
 
     public List<String> inOrderTraversal() {
-        List<String> output = new ArrayList<>() List<> ();
+        List<String> output = new ArrayList<>();
         return output;
     }
 
     public List<String> postOrderTraversal() {
-        List<String> output = new ArrayList<>() List<> ();
+        List<String> output = new ArrayList<>();
         return output;
     }
 }
