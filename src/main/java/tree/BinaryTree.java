@@ -31,16 +31,44 @@ public class BinaryTree<T> {
 
     public List<T> preOrderTraversal() {
         List<T> output = new ArrayList<>();
+
+        preOrderInternal(this.root, output);
+
         return output;
+    }
+
+    private void preOrderInternal(Node<T> current, List<T> output) {
+        output.add(current.getVal());
+        preOrderInternal(current.getLeft(), output);
+        preOrderInternal(current.getRight(), output);
     }
 
     public List<T> inOrderTraversal() {
         List<T> output = new ArrayList<>();
+
+        inOrderInternal(this.root, output);
+
         return output;
+    }
+
+    private void inOrderInternal(Node<T> current, List<T> output) {
+        output.add(current.getVal());
+        inOrderInternal(current.getLeft(), output);
+        inOrderInternal(current.getRight(), output);
     }
 
     public List<T> postOrderTraversal() {
         List<T> output = new ArrayList<>();
+
+        postOrderInternal(this.root, output);
+
         return output;
     }
+
+    private void postOrderInternal(Node<T> current, List<T> output) {
+        output.add(current.getVal());
+        postOrderInternal(current.getLeft(), output);
+        postOrderInternal(current.getRight(), output);
+    }
+
 }
