@@ -7,18 +7,18 @@ public class BinaryTree<T> {
     private Node<T> root;
 
 
-    public List<String> preOrderTraversal() {
-        List<String> output = new ArrayList<>();
+    public List<T> preOrderTraversal() {
+        List<T> output = new ArrayList<>();
         return output;
     }
 
-    public List<String> inOrderTraversal() {
-        List<String> output = new ArrayList<>();
+    public List<T> inOrderTraversal() {
+        List<T> output = new ArrayList<>();
         return output;
     }
 
-    public List<String> postOrderTraversal() {
-        List<String> output = new ArrayList<>();
+    public List<T> postOrderTraversal() {
+        List<T> output = new ArrayList<>();
         return output;
     }
 }
