@@ -8,7 +8,7 @@ import java.util.List;
 public class BinarySearchTree<T> {
     private Node<T> root;
 
-    public BinarySearchTreeTree() {
+    public BinarySearchTree() {
         super();
     }
 
