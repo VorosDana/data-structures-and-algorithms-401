@@ -3,7 +3,6 @@ package tree;
 import stacksandqueues.Queue;
 
 import java.util.Collection;
-import java.util.List;
 
 public class BinarySearchTree {
     private Node<Integer> root;

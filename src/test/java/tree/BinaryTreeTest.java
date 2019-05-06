@@ -43,4 +43,36 @@ public class BinaryTreeTest {
         assertEquals(1, postOrder.size());
         assertEquals(testContents, postOrder);
     }
+
+    @Test
+    public void testTenElementTree() {
+        List<Integer> testContents = new ArrayList<>();
+        testContents.add(10);
+        testContents.add(10);
+        testContents.add(10);
+        testContents.add(10);
+        testContents.add(10);
+        testContents.add(10);
+        testContents.add(10);
+        testContents.add(10);
+        testContents.add(10);
+        testContents.add(10);
+
+        BinaryTree<Integer> test = new BinaryTree<>(testContents);
+
+
+        List<Integer> preOrder = test.preOrderTraversal();
+        assertEquals(10, preOrder.size());
+        assertEquals(testContents, preOrder);
+
+        List<Integer> inOrder = test.inOrderTraversal();
+        assertEquals(10, inOrder.size());
+        assertEquals(testContents, inOrder);
+
+        List<Integer> postOrder = test.postOrderTraversal();
+        assertEquals(10, postOrder.size());
+        assertEquals(testContents, postOrder);
+    }
+    
+
 }

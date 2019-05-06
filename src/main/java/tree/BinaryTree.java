@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class BinaryTree<T> {
-    private Node<T> root;
+    protected Node<T> root;
 
     public BinaryTree() {
         super();
