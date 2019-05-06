@@ -16,14 +16,24 @@ public class BinaryTree<T> {
     public BinaryTree(Collection<T> vals) {
         java.util.Queue<T> valsQ = new java.util.PriorityQueue<>(vals);
         this.root = new Node<>();
+        this.root.setVal(valsQ.remove());
         Queue<Node<T>> q = new Queue<>();
         q.enqueue(this.root);
 
         while (!valsQ.isEmpty()) {
             Node<T> current = q.dequeue();
-            current.setVal(valsQ.remove());
-            current.setLeft(new Node<T>());
-            current.setRight(new Node<T>());
+
+            if (!valsQ.isEmpty()) {
+                current.setLeft(new Node<T>());
+                current.getLeft().setVal(valsQ.remove());
+            }
+
+            if (!valsQ.isEmpty()) {
+                current.setRight(new Node<T>());
+                current.getRight().setVal(valsQ.remove());
+            }
+
+
             q.enqueue(current.getLeft());
             q.enqueue(current.getRight());
         }

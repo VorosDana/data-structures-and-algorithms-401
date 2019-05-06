@@ -2,6 +2,7 @@ package tree;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -22,5 +23,24 @@ public class BinaryTreeTest {
         assertEquals(0, postOrder.size());
     }
 
+    @Test
+    public void testOneElementTree() {
+        List<Integer> testContents = new ArrayList<>();
+        testContents.add(10);
 
+        BinaryTree<Integer> test = new BinaryTree<>(testContents);
+
+
+        List<Integer> preOrder = test.preOrderTraversal();
+        assertEquals(1, preOrder.size());
+        assertEquals(testContents, preOrder);
+
+        List<Integer> inOrder = test.inOrderTraversal();
+        assertEquals(1, inOrder.size());
+        assertEquals(testContents, inOrder);
+
+        List<Integer> postOrder = test.postOrderTraversal();
+        assertEquals(1, postOrder.size());
+        assertEquals(testContents, postOrder);
+    }
 }
