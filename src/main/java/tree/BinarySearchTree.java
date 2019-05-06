@@ -5,7 +5,7 @@ import stacksandqueues.Queue;
 import java.util.Collection;
 
 public class BinarySearchTree {
-    private Node<Integer> root;
+    protected Node<Integer> root;
 
     public BinarySearchTree() {
         super();
@@ -31,6 +31,7 @@ public class BinarySearchTree {
         if (this.root == null) {
             this.root = new Node<Integer>();
             this.root.setVal(val);
+            return;
         }
 
         Node<Integer> current = this.root;
@@ -43,6 +44,7 @@ public class BinarySearchTree {
                     Node<Integer> valNode = new Node<>();
                     valNode.setVal(val);
                     current.setRight(valNode);
+                    return;
                 }
             } else {
                 if (current.getLeft() != null) {
@@ -51,6 +53,7 @@ public class BinarySearchTree {
                     Node<Integer> valNode = new Node<>();
                     valNode.setVal(val);
                     current.setLeft(valNode);
+                    return;
                 }
             }
 
