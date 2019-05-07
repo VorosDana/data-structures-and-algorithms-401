@@ -12,14 +12,18 @@ public class FizzBuzzTree extends BinaryTree<Object> {
     }
 
     private void fizzbuzz(Node n) {
-        if (n.getClass().equals(String.class)) {
 
-        } else if ((int) n.getVal() % 15 == 0) {
-            n.setVal("FizzBuzz");
-        } else if ((int) n.getVal() % 3 == 0) {
-            n.setVal("Buzz");
-        } else if ((int) n.getVal() % 5 == 0) {
-            n.setVal("Fizz");
+        try {
+            String typeTest = (String) n.getVal();
+        } catch (ClassCastException e) {
+
+            if ((int) n.getVal() % 15 == 0) {
+                n.setVal("FizzBuzz");
+            } else if ((int) n.getVal() % 3 == 0) {
+                n.setVal("Fizz");
+            } else if ((int) n.getVal() % 5 == 0) {
+                n.setVal("Buzz");
+            }
         }
 
         if (n.getLeft() != null) {

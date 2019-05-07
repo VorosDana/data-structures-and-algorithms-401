@@ -14,7 +14,7 @@ public class BinaryTree<T> {
     }
 
     public BinaryTree(Collection<T> vals) {
-        java.util.Queue<T> valsQ = new java.util.PriorityQueue<>(vals);
+        java.util.Queue<T> valsQ = new java.util.LinkedList<>(vals);
         this.root = new Node<>();
         this.root.setVal(valsQ.remove());
         Queue<Node<T>> q = new Queue<>();
