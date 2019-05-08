@@ -14,7 +14,7 @@ public class BinaryTree<T> {
     }
 
     public BinaryTree(Collection<T> vals) {
-        java.util.Queue<T> valsQ = new java.util.PriorityQueue<>(vals);
+        java.util.Queue<T> valsQ = new java.util.LinkedList<>(vals);
         this.root = new Node<>();
         this.root.setVal(valsQ.remove());
         Queue<Node<T>> q = new Queue<>();
@@ -69,10 +69,11 @@ public class BinaryTree<T> {
     }
 
     private void inOrderInternal(Node<T> current, List<T> output) {
-        output.add(current.getVal());
+
         if (current.getLeft() != null) {
             inOrderInternal(current.getLeft(), output);
         }
+        output.add(current.getVal());
         if (current.getRight() != null) {
             inOrderInternal(current.getRight(), output);
         }
@@ -88,13 +89,14 @@ public class BinaryTree<T> {
     }
 
     private void postOrderInternal(Node<T> current, List<T> output) {
-        output.add(current.getVal());
+
         if (current.getLeft() != null) {
             postOrderInternal(current.getLeft(), output);
         }
         if (current.getRight() != null) {
             postOrderInternal(current.getRight(), output);
         }
+        output.add(current.getVal());
     }
 
 }
