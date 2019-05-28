@@ -1,4 +1,4 @@
-import org.junit.Before;
+import hashes.HashMap;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -8,7 +8,7 @@ public class HashMapTest {
 // the before was not working properly
 //    @Before
 //    public void setup() {
-//        testo = new HashMap<>();
+//        testo = new hashes.HashMap<>();
 //        testo.add("Test One", 15);
 //        testo.add("Test Two", 678);
 //        testo.add("Test Three", 48);

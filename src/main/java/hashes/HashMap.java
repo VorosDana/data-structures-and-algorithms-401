@@ -1,3 +1,5 @@
+package hashes;
+
 import java.lang.reflect.Array;
 
 public class HashMap<T> {
