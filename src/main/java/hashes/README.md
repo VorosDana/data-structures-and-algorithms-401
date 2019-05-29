@@ -21,7 +21,13 @@
 | --- | --- | --- | --- |
 |repeatedWord|String|String text|Searches the text, and returns the first word that is repeated. If there are no repeats, returns null.
 
+## TreeIntersection
 
+### Static Methods
+
+| Method | Return | Input | Description |
+| --- | --- | --- | --- |
+|intersection|HashSet<T>|BinaryTree<T>, BinaryTree<T>|returns a HashSet containing the elements found in both trees
 
 ## Space and Efficiency
 
@@ -39,5 +45,11 @@
 
 | Method | Time | Space | Approach
 | --- | --- | --- | ---
-|repeatedWord|O(n)|O(n)|Creates an array of words, split on spaces, and a HashMap to hold word that are found. Then iterates through the words array, stripping off punctuation and moving words to lowercase, adding them to the hashmap as both the key and value of pairs. If the add returns false, it already exists in the Hashmap, and that word is returned. If no repeated word is found, returns null.s
+|repeatedWord|O(n)|O(n)|Creates an array of words, split on spaces, and a HashMap to hold word that are found. Then iterates through the words array, stripping off punctuation and moving words to lowercase, adding them to the hashmap as both the key and value of pairs. If the add returns false, it already exists in the Hashmap, and that word is returned. If no repeated word is found, returns null.
+
+### TreeIntersection
+
+| Method | Time | Space | Approach
+| --- | --- | --- | ---
+|intersection|O(n)|O(n)|Puts all elements of first tree into a HashMap, then attempts to add elements of second tree. On a collision, the colliding element is added to the output HashMap, with is then returned.
 
