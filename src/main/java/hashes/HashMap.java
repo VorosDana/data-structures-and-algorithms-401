@@ -97,7 +97,7 @@ public class HashMap<T> {
         return (get(key) != null);
     }
 
-    private class Node<T> {
+    protected class Node<T> {
         protected String key;
         protected T value;
         protected Node next;
