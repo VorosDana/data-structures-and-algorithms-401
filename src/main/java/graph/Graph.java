@@ -63,7 +63,7 @@ public class Graph<T> {
         return output;
     }
 
-    private List<Pair<T, Integer>> findNode(T targetValue) {
+    protected List<Pair<T, Integer>> findNode(T targetValue) {
         for (List<Pair<T, Integer>> list : vertices) {
             if (targetValue.equals(list.get(0).keyA)) {
                 return list;
