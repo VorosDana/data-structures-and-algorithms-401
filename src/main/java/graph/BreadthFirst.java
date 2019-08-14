@@ -17,13 +17,13 @@ public abstract class BreadthFirst {
 
         while (traversalQueue.peek() != null) {
             List<Pair<T, Integer>> currentNode = traversalQueue.dequeue();
-            if (!output.contains(currentNode.get(0).keyA)) {
-                output.add(currentNode.get(0).keyA);
+            if (!output.contains(currentNode.get(0).getKeyA())) {
+                output.add(currentNode.get(0).getKeyA());
             }
-            for (Pair<T, Integer> node : graph.findNeighbors(currentNode.get(0).keyA)) {
-                if (!visitedNodes.contains(node.keyA)) {
-                    traversalQueue.enqueue(graph.findNode(node.keyA));
-                    visitedNodes.add(node.keyA);
+            for (Pair<T, Integer> node : graph.findNeighbors(currentNode.get(0).getKeyA())) {
+                if (!visitedNodes.contains(node.getKeyA())) {
+                    traversalQueue.enqueue(graph.findNode(node.getKeyA()));
+                    visitedNodes.add(node.getKeyA());
                 }
             }
         }

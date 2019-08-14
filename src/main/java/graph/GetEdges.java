@@ -15,9 +15,9 @@ public abstract class GetEdges {
             boolean found = false;
             List<Pair<T, Integer>> neighbors = graph.findNeighbors(stops[stop]);
             for (Pair<T, Integer> neighbor : neighbors) {
-                if (neighbor.keyA.equals(graph.findNode(stops[stop + 1]).get(0).keyA)) {
-                    currentNode = graph.findNode(neighbor.keyA);
-                    edgeWeight += neighbor.keyB;
+                if (neighbor.getKeyA().equals(graph.findNode(stops[stop + 1]).get(0).getKeyA())) {
+                    currentNode = graph.findNode(neighbor.getKeyA());
+                    edgeWeight += neighbor.getKeyB();
                     stop++;
                     found = true;
                     break;

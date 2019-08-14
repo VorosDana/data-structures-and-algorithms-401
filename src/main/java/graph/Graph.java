@@ -51,11 +51,11 @@ public class Graph<T> {
         List<Pair<T, Integer>> output = new ArrayList<Pair<T, Integer>>();
 
         for (Pair<T, Integer> pair : targetList) {
-            if (pair.keyB != -1) {
+            if (pair.getKeyB() != -1) {
                 output.add(
                         new Pair<T, Integer>(
-                                pair.keyA,
-                                pair.keyB
+                                pair.getKeyA(),
+                                pair.getKeyB()
                         )
                 );
             }
@@ -65,7 +65,7 @@ public class Graph<T> {
 
     protected List<Pair<T, Integer>> findNode(T targetValue) {
         for (List<Pair<T, Integer>> list : vertices) {
-            if (targetValue.equals(list.get(0).keyA)) {
+            if (targetValue.equals(list.get(0).getKeyA())) {
                 return list;
             }
         }
@@ -81,7 +81,7 @@ public class Graph<T> {
         List<T> output = new ArrayList<>();
 
         for (List<Pair<T, Integer>> list : vertices) {
-            output.add(list.get(0).keyA);
+            output.add(list.get(0).getKeyA());
         }
 
         return output;
@@ -89,7 +89,7 @@ public class Graph<T> {
 
     public boolean contains(T targetVal) {
         for (List<Pair<T, Integer>> val : vertices) {
-            if (val.get(0).keyA.equals(targetVal)) {
+            if (val.get(0).getKeyA().equals(targetVal)) {
                 return true;
             }
 

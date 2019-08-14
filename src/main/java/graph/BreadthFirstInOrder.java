@@ -14,9 +14,9 @@ public class BreadthFirstInOrder {
 
     public static <T> List<T> traverse(Graph<T> graph, T startNode, List<T> visited) {
         for (Pair<T, Integer> neighbor : graph.findNeighbors(startNode)) {
-            if (!visited.contains(neighbor.keyA)) {
-                visited.add(neighbor.keyA);
-                traverse(graph, neighbor.keyA, visited);
+            if (!visited.contains(neighbor.getKeyA())) {
+                visited.add(neighbor.getKeyA());
+                traverse(graph, neighbor.getKeyA(), visited);
             }
         }
 
