@@ -20,8 +20,8 @@ public class BinarySearchTree {
         while (!valsQ.isEmpty()) {
             Node<Integer> current = q.dequeue();
             current.setVal(valsQ.remove());
-            current.setLeft(new Node<Integer>());
-            current.setRight(new Node<Integer>());
+            current.setLeft(new Node<>());
+            current.setRight(new Node<>());
             q.enqueue(current.getLeft());
             q.enqueue(current.getRight());
         }
@@ -29,7 +29,7 @@ public class BinarySearchTree {
 
     public void add(Integer val) {
         if (this.root == null) {
-            this.root = new Node<Integer>();
+            this.root = new Node<>();
             this.root.setVal(val);
             return;
         }
