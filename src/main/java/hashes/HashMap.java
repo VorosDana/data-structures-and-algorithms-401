@@ -3,12 +3,13 @@ package hashes;
 import java.lang.reflect.Array;
 
 public class HashMap<T> {
-    protected Node[] buckets;
+    protected Node<T>[] buckets;
 
     public HashMap(int buckets) {
         // courtesy of Stack Overflow user Varkhan
         // https://stackoverflow.com/questions/529085/how-to-create-a-generic-array-in-java
-        final Node[] temp = (Node[]) Array.newInstance(Node.class, buckets);
+        @SuppressWarnings("unchecked")
+        final Node<T>[] temp = (Node<T>[]) Array.newInstance(Node.class, buckets);
 
         this.buckets = temp;
     }
@@ -40,7 +41,7 @@ public class HashMap<T> {
         // start with head, name for node because
         // we'll keep using the same variable
         // in the while loop
-        Node hashBucketNode = buckets[hashedKey];
+        Node<T> hashBucketNode = buckets[hashedKey];
 
         if (hashBucketNode == null) {
             buckets[hashedKey] = new Node<T>(key, value);
@@ -97,12 +98,12 @@ public class HashMap<T> {
         return (get(key) != null);
     }
 
-    protected class Node<T> {
+    protected class Node<U> {
         protected String key;
-        protected T value;
-        protected Node next;
+        protected U value;
+        protected Node<U> next;
 
-        protected Node(String key, T value) {
+        protected Node(String key, U value) {
             this.key = key;
             this.value = value;
         }
